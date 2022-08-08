@@ -1,0 +1,132 @@
+
+#root {
+  height: 100vh;
+}
+
+
+a:link, a:visited, a:focus, a:active{
+  text-decoration: none;
+}
+
+:root {
+  --toastify-color-dark: #2C3E50 !important;
+  --events-img: none;
+  --display-button: initial;
+  --cursor-display: none;
+}
+
+header {
+  width: 100%;
+  font-size: 12px;
+  min-height: 60px;
+  /* z-index: 50; */
+}
+
+footer {
+  margin-top: auto;
+}
+
+.App {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-image {
+  margin-bottom: auto;
+  height: auto;
+  max-width: 100%;
+  cursor: none;
+  opacity: var(--img-opacity);
+  pointer-events: var(--events-img);
+}
+
+.start-background {
+  background-color: var(--bg-color);
+}
+
+
+.centerxy{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.button-start {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: var(--display-button);
+}
+
+.submit-form{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: var(--display-button);
+}
+.cursor-game {
+  position: absolute;
+  border: 4px red solid;
+  width: calc(15vw / 6);
+  height: calc(15vw / 6);
+  display: var(--cursor-display);
+  border-radius: 51%;
+  border-style: dotted;
+  pointer-events: none;
+}
+
+.context-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  padding: 1.35em;
+  gap: 1.35em;
+  border-radius: 14px;
+  height: auto;
+  position: absolute;
+}
+
+.button-contextmenu {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 300;
+  width: 95%;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+@media all and (max-width: 30em) {
+  button-contextmenu {
+    display: block;
+    margin: 0.4em auto;
+  }
+}
+
+.game-wrapper {
+  position: relative;
+}
+
+.svgs{
+  min-width: 9px;
+  max-width: 36px;
+  vertical-align:middle
+}
+
+.testo{
+  margin-right: 15px;
+}
+
+.scoreboard{
+  z-index: 20;
+}
