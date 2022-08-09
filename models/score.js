@@ -1,14 +1,13 @@
 const mongoose = require("mongoose");
 
 const scoreSchema = new mongoose.Schema({
-  name: String,
-  rawScore: Number,
-  score: Number,
+  name: {type: String, min:4 , max: 10, required: true},
+  rawScore: {type: Number, required: true},
+  scoreString: {type: String, required: true},
 });
 
 scoreSchema.set("toJSON", {
   transform: (document, returnedObject) => {
-    returnedObject.id = returnedObject._id.toString();
     delete returnedObject._id;
     delete returnedObject.__v;
   },
