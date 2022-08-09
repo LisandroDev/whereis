@@ -20,6 +20,7 @@ app.use(express.json());
 //     next();
 //   }
 // });
+app.use(express.static('build'))
 app.use(cors())
 app.use("/api/scoreboard", scoreboardRouter);
 app.use("/api/characters", charactersRouter)

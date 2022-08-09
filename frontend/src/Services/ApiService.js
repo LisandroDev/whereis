@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url =  'http://localhost:3020'
+const url =  ''
 
 const fetchCoords = async (characterName) => {
     const response = await axios.get(`${url}/api/characters/${characterName}`)
