@@ -1,33 +1,37 @@
-import useFirestore from "../Hooks/useFirestore";
 import { useEffect, useState } from "react";
+import apiService from "../Services/ApiService";
+import uniqid from 'uniqid'
 
 export default function Scoreboard(props) {
   const [players, setPlayers] = useState(null);
 
-  // const { fetchScoreboard } = useFirestore();
-
+  const { fetchScoreboard } = apiService;
   function createPlayerRow(player) {
     return (
-      <tr key={player.name}>
+      <tr key={uniqid()}>
         <td>{player.name}</td>
-        <td>{player.score}</td>
+        <td>{player.scoreString}</td>
       </tr>
     );
   }
 
   useEffect(() => {
-    // fetchScoreboard().then(function (value) {
-    //   setPlayers(value);
-    // });
-  }, []);
+    fetchScoreboard().then((value) => {
+      setPlayers(value);
+    });
+  }, [fetchScoreboard]);
 
   return (
     <div
       className={
-        props.isOpen ? "modalbox-modal-content _f-black centerxy scoreboard" : "_hidden"
+        props.isOpen
+          ? "modalbox-modal-content _f-black centerxy scoreboard"
+          : "_hidden"
       }
     >
-    <legend className="_alignCenter"><h5>Leaderboard</h5></legend>
+      <legend className="_alignCenter">
+        <h5>Leaderboard</h5>
+      </legend>
       <span
         onClick={props.scoreboardToggle}
         className="-close"
@@ -43,7 +47,9 @@ export default function Scoreboard(props) {
           </tr>
         </thead>
         <tbody>
-          {players == null ? null : players.map(player => createPlayerRow(player))}
+          {players == null
+            ? null
+            : players.map((player) => createPlayerRow(player))}
         </tbody>
       </table>{" "}
     </div>

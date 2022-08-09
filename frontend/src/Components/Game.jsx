@@ -5,8 +5,8 @@ import ContextMenu from "./ContextMenu";
 import Submit from "./Submit";
 import { toast } from "react-toastify";
 import Button from "./StartButton";
+import apiService from "../Services/ApiService";
 import useGetScore from "../Hooks/useGetScore";
-import useFirestore from "../Hooks/useFirestore";
 
 function Game(props) {
   const [mouseCoords, setmouseCoords] = useState({ x: 0, y: 0 });
@@ -21,8 +21,8 @@ function Game(props) {
     squirrel: false,
   });
   const [score, setScore] = useState(0);
-  // const { fetchCoords } = useFirestore();
-  // const { getScore, recordTimestamp } = useGetScore();
+  const { fetchCoords } = apiService
+  const { getScore, recordTimestamp } = useGetScore();
 
   const resImage = { x: 3000, y: 1958 };
 
@@ -35,7 +35,7 @@ function Game(props) {
   }, [characterFound]);
 
   function handleStart() {
-    // recordTimestamp();
+    recordTimestamp();
     setisGameStarted(!isGameStarted);
     props.startTimer();
   }
@@ -43,7 +43,7 @@ function Game(props) {
   function handleFinish(){
     props.pauseTimer();
     setIsGameFinished(!isGameFinished);
-    // setScore(getScore());
+    setScore(getScore());
   }
 
   function onMouseMove(e) {
@@ -71,7 +71,7 @@ function Game(props) {
     });
   }
 
-  function checkForCharacter(dbCoords) {
+  function checkForCharacter(dbCoords, characterName) {
     const coords = coordsFixedRatio;
     if (
       coords.x < dbCoords.maxX &&
@@ -79,7 +79,7 @@ function Game(props) {
       coords.y < dbCoords.maxY &&
       coords.y > dbCoords.minY
     ) {
-      toast.success(`You found ${dbCoords.id}`);
+      toast.success(`You found ${characterName}`);
       return true;
     }
     toast.error(`Nothing there! Try Again`);
@@ -92,12 +92,12 @@ function Game(props) {
     setcharacterFound(copiedObject);
   }
 
-  async function handleOptionChoose(characterId) {
-    // const dbCoords = await fetchCoords(characterId);
-    // setisMenuViewable(!isMenuViewable);
-    // if (checkForCharacter(dbCoords)) {
-    //   handleCharacterFound(characterId);
-    // }
+  async function handleOptionChoose(characterName) {
+    const characterData = await fetchCoords(characterName);
+    setisMenuViewable(!isMenuViewable);
+    if (checkForCharacter(characterData.coords, characterName)) {
+      handleCharacterFound(characterName);
+    }
   }
 
   return (

@@ -1,18 +1,16 @@
-import { Timestamp } from "firebase/firestore";
 import { useState } from "react";
 
 export default function useGetScore() {
-  // const [initialTimeStamp, setInitialTimeStamp] = useState();
+  const [initialTimeStamp, setInitialTimeStamp] = useState();
 
-  // function recordTimestamp() {
-  //   setInitialTimeStamp(Timestamp.now().seconds);
-  // }
+  function recordTimestamp() {
+    setInitialTimeStamp(Math.floor(Date.now() / 1000));
+  }
 
-  // function getScore() {
-  //     const score = Timestamp.now().seconds;
-  //   return score - initialTimeStamp;
-  // }
+  function getScore() {
+    const score = Math.floor(Date.now() / 1000);
+    return score - initialTimeStamp;
+  }
 
-  // return { recordTimestamp, getScore };
-  return ''
+  return { recordTimestamp, getScore };
 }

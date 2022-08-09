@@ -8,7 +8,7 @@ export default function Submit(props) {
   const inputValue = useRef();
   const [alreadyPush, setalreadyPush] = useState(false);
 
-  // const { pushToScoreboard, secondsFormat } = useSubmit();
+  const { pushToScoreboard, secondsFormat } = useSubmit();
 
   function validateInput(input){
     return validator.isAlphanumeric(input)
@@ -16,9 +16,10 @@ export default function Submit(props) {
 
   function onClick(name, score) {
     if(validateInput(name)){
-      // pushToScoreboard(name, score);
+      pushToScoreboard(name, score);
       setalreadyPush(!alreadyPush);
       toast.success('Score submitted!')
+      setTimeout(() => {window.location.reload()},3000)
     }
     else{
       toast.error('Only letters and numbers without whitespaces !')
@@ -35,7 +36,7 @@ export default function Submit(props) {
       style={{ innerHeight: 250 }}
     >
       <p className="_alignCenter">
-        {/* Your final time is: {secondsFormat(props.score)} */}
+        Your final time is: {secondsFormat(props.score)}
       </p>
       <form>
         <fieldset className="_alignCenter">
