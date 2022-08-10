@@ -4,7 +4,11 @@
 ## Ejemplo en vivo
 [<img src="https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white" /> ](https://sheltered-stream-91659.herokuapp.com/)
 
+Image by:  [Marija Tiurina](https://marijatiurina.com/)
+
+
 ## Descripción 📑
+
 
 Juego estilo Buscando a Waldo, consiste en buscar los 3 personajes: ardilla voladora, abeja y una tortuga.
 
