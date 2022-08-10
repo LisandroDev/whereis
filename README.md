@@ -19,6 +19,12 @@ Juego estilo Buscando a Waldo, consiste en buscar los 3 personajes: ardilla vola
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 	![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
+## Vista Previa
+
+
+<img src="https://i.imgur.com/GG7dobB.jpg" /> 
+
+
 ## Instalación 
 Realizar - npm install tanto en carpeta del frontend como en el backend.
 crear archivo .env con MONGODB_URI(Direccion con Usuario y Contraseña al BackEnd de MongoDB) y PORT (Puerto a utilizarse) 
