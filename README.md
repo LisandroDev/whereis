@@ -27,5 +27,7 @@ Juego estilo Buscando a Waldo, consiste en buscar los 3 personajes: ardilla vola
 
 ## Instalación 
 Realizar - npm install tanto en carpeta del frontend como en el backend.
+
 crear archivo .env con MONGODB_URI(Direccion con Usuario y Contraseña al BackEnd de MongoDB) y PORT (Puerto a utilizarse) 
+
 Debe usarse npm run dev en el backend y npm run start en el frontend
